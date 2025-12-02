@@ -26,7 +26,7 @@ void I2CRelay::setup() {
   } else {
       uint8_t rev_minor;
       this->read(&rev_minor, 1);
-      ESP_LOGI(TAG, "Initialization complete; revision: %d, %d", rev_major, rev_minor)
+      ESP_LOGI(TAG, "Initialization complete; revision: %d, %d", rev_major, rev_minor);
   }
 }
 

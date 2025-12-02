@@ -7,7 +7,7 @@
 namespace esphome {
 namespace i2c_relay {
 
-class I2CRelay : public i2c::I2CDevice, public output::BinaryOutput, public Component {
+class I2CRelay : public Component, public output::BinaryOutput, public i2c::I2CDevice {
  public:
   void setup() override;
   void dump_config() override;
@@ -15,5 +15,5 @@ class I2CRelay : public i2c::I2CDevice, public output::BinaryOutput, public Comp
 };
 
 
-}  // namespace empty_i2c_component
+}  // namespace i2c_relay
 }  // namespace esphome

@@ -9,7 +9,7 @@ static const char *TAG = "i2c_relay.component";
 
 void I2CRelay::setup() {
   uint8_t rev_cmd = 0x04;
-  if (this->write(&initialize_cmd, 1) != i2c::ERROR_OK) {
+  if (this->write(&rev_cmd, 1) != i2c::ERROR_OK) {
     this->mark_failed(); // Mark the component as failed if communication fails
     return;
   }
@@ -26,7 +26,7 @@ void I2CRelay::setup() {
   } else {
       uint8_t rev_minor;
       this->read(&rev_minor, 1);
-      ESP_LOG(TAG, "Initialization complete; revision: %d, %d", rev_major, rev_minor)
+      ESP_LOGI(TAG, "Initialization complete; revision: %d, %d", rev_major, rev_minor)
   }
 }
 
